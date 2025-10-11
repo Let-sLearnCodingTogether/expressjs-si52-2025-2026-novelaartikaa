@@ -1,0 +1,65 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(-45deg, #789dbc, #ffe3e3, #d4bee4, #c9e9d2);
+  background-size: 400% 400%;
+  animation: gradientBg 15s ease infinite;
+  color: white;
+}
+
+@keyframes gradientBg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 4px solid gray;
+  transition: transorm 0.3s ease;
+}
+
+.profile-card {
+  max-width: 680px;
+  width: 100%;
+}
+
+.username {
+  font-weight: 700;
+  text-shadow: 2px 2px 4px black;
+}
+
+.bio {
+  font-weight: 300px;
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-weight: 700;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.social-icons a {
+  color: white;
+  font-size: 1.8rem;
+  text-decoration: none;
+  opacity: 0.8;
+}
