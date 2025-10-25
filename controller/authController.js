@@ -1,5 +1,6 @@
 import UserModel from "../models/userModel.js";
-import { hash } from "../utils/hashUtil.js";
+import { compare, hash } from "../utils/hashUtil.js";
+import { jwtSignUtil } from "../utils/jwtSignUtil.js";
 
 export const register = async (req, res) => {
   try {
@@ -12,7 +13,7 @@ export const register = async (req, res) => {
     await UserModel.create({
       username: registerData.username,
       email: registerData.email,
-      password: registerData.password,
+      password: hashPassword,
     });
 
     res.status(201).json({
@@ -51,7 +52,7 @@ export const login = async (req, res) => {
         data: {
           username: user.username,
           email: user.email,
-          token: "TOKEN",
+          token: jwtSignUtil(user),
         },
       });
     }
@@ -61,7 +62,7 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
-      message: error,
+      message: error.message,
       data: null,
     });
   }

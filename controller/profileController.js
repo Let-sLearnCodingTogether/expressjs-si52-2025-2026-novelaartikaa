@@ -11,3 +11,18 @@ export const profile = (req, res) => {
   const nama = req.params.nama;
   res.send(`Halo, nama saya adalah ${nama}`);
 };
+
+export const privateProfile = async (req, res) => {
+  try {
+    const user = req.user;
+    res.status(200).json({
+      message: "Private profile berhasil di akses",
+      data: user,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+      data: null,
+    });
+  }
+};
